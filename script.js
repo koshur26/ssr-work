@@ -60,15 +60,26 @@ function updateActiveNav() {
     });
 
     document.querySelectorAll('.nav-links a').forEach(a => {
-      a.classList.toggle('active', a.getAttribute('href') === `#${current}`);
+      const href = a.getAttribute('href') || '';
+      const fragment = href.includes('#') ? href.split('#')[1] : null;
+      a.classList.toggle('active', fragment === current);
     });
   });
 }
 
 // ── SMOOTH SCROLL ──
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+// Matches plain "#section" links AND same-page links like "/index.html#section".
+document.querySelectorAll('a[href*="#"]').forEach(anchor => {
+  const href = anchor.getAttribute('href');
+  const [path, fragment] = href.split('#');
+  const currentPath = window.location.pathname.replace(/\/index\.html$/, '/').replace(/\/$/, '') || '/';
+  const linkPath = (path || '').replace(/\/index\.html$/, '/').replace(/\/$/, '') || '/';
+  const isSamePage = !path || linkPath === currentPath;
+
+  if (!fragment || !isSamePage) return;
+
   anchor.addEventListener('click', function (e) {
-    const target = document.querySelector(this.getAttribute('href'));
+    const target = document.getElementById(fragment);
     if (target) {
       e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });

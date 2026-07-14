@@ -660,6 +660,33 @@ footer {
   margin-top: var(--sp-sm);
 }
 
+/* ── SUBPAGE HEADER (used on Practice Areas & Contact Us standalone pages) ── */
+.page-header {
+  padding: calc(64px + var(--sp-xl)) var(--sp-md) var(--sp-md);
+  text-align: center;
+  background: linear-gradient(180deg, var(--forest) 0%, var(--forest-lt) 100%);
+}
+.page-header .section-eyebrow,
+.page-header .section-title { color: var(--gold-lt); }
+.page-header .section-title { color: var(--cream); }
+.page-header-sub {
+  max-width: 620px;
+  margin: var(--sp-sm) auto 0;
+  color: var(--gold-lt);
+  font-size: var(--fs-base);
+  line-height: 1.7;
+  opacity: 0.9;
+}
+.breadcrumb {
+  font-size: var(--fs-xs);
+  color: var(--muted);
+  text-align: center;
+  padding: var(--sp-sm) var(--sp-md) 0;
+  letter-spacing: 0.04em;
+}
+.breadcrumb a { color: var(--forest-lt); text-decoration: none; }
+.breadcrumb a:hover { color: var(--gold); }
+
 /* ── ANIMATIONS ── */
 .fade-in {
   opacity: 0; transform: translateY(24px);
