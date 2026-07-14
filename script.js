@@ -3,25 +3,50 @@
    ==================================================== */
 
 // ── DISCLAIMER GATE ──
-document.getElementById('acceptBtn').addEventListener('click', function () {
+const DISCLAIMER_KEY = 'ssrDisclaimerAccepted';
+
+function activateApp(instant) {
   const gate = document.getElementById('gate');
   const app  = document.getElementById('app');
 
+  gate.style.display = 'none';
+  app.style.display  = 'block';
+
+  requestAnimationFrame(() => {
+    document.querySelectorAll('.fade-in').forEach((el, i) => {
+      setTimeout(() => el.classList.add('visible'), instant ? 0 : i * 100);
+    });
+  });
+
+  initScrollObserver();
+  updateActiveNav();
+}
+
+// Already accepted on a previous page/visit? Skip the gate immediately.
+let alreadyAccepted = false;
+try {
+  alreadyAccepted = localStorage.getItem(DISCLAIMER_KEY) === 'true';
+} catch (e) {
+  // localStorage unavailable (private mode, etc.) — gate will show as normal.
+}
+
+if (alreadyAccepted) {
+  activateApp(true);
+}
+
+document.getElementById('acceptBtn').addEventListener('click', function () {
+  try {
+    localStorage.setItem(DISCLAIMER_KEY, 'true');
+  } catch (e) {
+    // If storage isn't available, the gate will simply show again next visit.
+  }
+
+  const gate = document.getElementById('gate');
   gate.style.transition = 'opacity 0.7s ease';
   gate.style.opacity = '0';
 
   setTimeout(() => {
-    gate.style.display = 'none';
-    app.style.display  = 'block';
-
-    requestAnimationFrame(() => {
-      document.querySelectorAll('.fade-in').forEach((el, i) => {
-        setTimeout(() => el.classList.add('visible'), i * 100);
-      });
-    });
-
-    initScrollObserver();
-    updateActiveNav();
+    activateApp(false);
   }, 700);
 });
 

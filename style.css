@@ -59,6 +59,11 @@ a {
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    DISCLAIMER GATE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* When the disclaimer was already accepted (localStorage flag checked
+   synchronously before paint), skip the gate instantly - no flash. */
+html.disclaimer-accepted #gate { display: none !important; }
+html.disclaimer-accepted #app  { display: block !important; }
+
 #gate {
   position: fixed; inset: 0; z-index: 9999;
   background: var(--forest);
