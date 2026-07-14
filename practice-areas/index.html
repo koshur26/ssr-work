@@ -52,6 +52,15 @@
 </script>
 </head>
 <body>
+<script>
+  // Prevents any flash of the disclaimer gate for returning visitors
+  // who already accepted it (checked synchronously before first paint).
+  try {
+    if (localStorage.getItem('ssrDisclaimerAccepted') === 'true') {
+      document.documentElement.classList.add('disclaimer-accepted');
+    }
+  } catch (e) {}
+</script>
 
 <!-- ══════════════════════════════════════
      DISCLAIMER GATE
