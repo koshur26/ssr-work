@@ -684,12 +684,13 @@ footer {
 }
 .breadcrumb {
   font-size: var(--fs-xs);
-  color: var(--muted);
+  color: rgba(232,213,160,0.65);
   text-align: center;
-  padding: var(--sp-sm) var(--sp-md) 0;
+  padding: var(--sp-sm) var(--sp-md);
   letter-spacing: 0.04em;
+  background: var(--forest);
 }
-.breadcrumb a { color: var(--forest-lt); text-decoration: none; }
+.breadcrumb a { color: var(--gold-lt); text-decoration: none; }
 .breadcrumb a:hover { color: var(--gold); }
 
 /* ── ANIMATIONS ── */
