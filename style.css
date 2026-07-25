@@ -561,7 +561,7 @@ section { padding: var(--sp-xl) var(--sp-md); }
   border: 0.5px solid var(--parchment);
   border-radius: 14px;
   padding: var(--sp-md);
-  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   position: relative; overflow: hidden;
 }
 .practice-card::before {
@@ -573,13 +573,21 @@ section { padding: var(--sp-xl) var(--sp-md); }
   transition: transform 0.3s;
 }
 .practice-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(26,58,42,0.12);
-  border-color: var(--gold-dim);
+  transform: translateY(-8px);
+  box-shadow: 0 18px 44px rgba(26,58,42,0.16);
+  border-color: var(--gold);
 }
 .practice-card:hover::before { transform: scaleX(1); }
 
-.practice-icon  { font-size: 28px; margin-bottom: var(--sp-xs); }
+.practice-icon  {
+  font-size: 28px; margin-bottom: var(--sp-xs);
+  display: inline-block;
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+.practice-card:hover .practice-icon {
+  transform: scale(1.15) rotate(-6deg);
+  filter: drop-shadow(0 3px 8px rgba(201,168,76,0.55));
+}
 .practice-name  {
   font-family: 'Cinzel', serif;
   color: var(--forest);
@@ -588,6 +596,23 @@ section { padding: var(--sp-xl) var(--sp-md); }
   margin-bottom: 6px;
 }
 .practice-desc  { font-size: var(--fs-sm); color: var(--muted); line-height: 1.75; }
+
+.practice-more {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: var(--sp-sm);
+  font-family: 'Cinzel', serif;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.practice-card:hover .practice-more { opacity: 1; transform: translateY(0); }
+.practice-more::after { content: '→'; transition: transform 0.25s ease; }
+.practice-more:hover::after { transform: translateX(4px); }
 
 /* ── CONTACT ── */
 #contact { background: var(--forest); position: relative; overflow: hidden; }
