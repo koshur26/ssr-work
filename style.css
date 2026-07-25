@@ -698,12 +698,33 @@ footer {
   max-width: 900px;
   margin: 0 auto;
 }
-.team-card { text-align: center; }
+.team-card { text-align: center; scroll-margin-top: 90px; }
 .team-photo-frame {
   position: relative;
   width: clamp(150px, 20vw, 210px);
   aspect-ratio: 3/4;
   margin: 0 auto var(--sp-sm);
+  transition: transform 0.35s ease;
+}
+.team-photo-frame .photo-placeholder,
+.team-photo-frame > img {
+  transition: box-shadow 0.35s ease, filter 0.35s ease;
+}
+.team-card:hover .team-photo-frame,
+.team-card:focus-visible .team-photo-frame {
+  transform: translateY(-6px) scale(1.045);
+}
+.team-card:hover .team-photo-frame .photo-placeholder,
+.team-card:hover .team-photo-frame > img {
+  box-shadow: 0 16px 36px rgba(201,168,76,0.4);
+}
+.team-card:hover .team-name { color: var(--gold); }
+.team-name { transition: color 0.3s ease; }
+a.team-card, a.team-card:visited {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: pointer;
 }
 .team-photo-frame .photo-placeholder { border-radius: 130px 130px 90px 90px; }
 .team-photo-frame .photo-initials { font-size: clamp(30px, 6vw, 52px); }
@@ -740,6 +761,27 @@ footer {
   max-width: 280px;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* ── SECTION CLOSING DIVIDER (bigger/bolder than .section-rule) ── */
+.section-divider {
+  display: flex; align-items: center; justify-content: center;
+  gap: 16px;
+  margin-top: var(--sp-xl);
+}
+.section-divider-line {
+  height: 2px; width: clamp(80px, 14vw, 160px);
+  background: var(--gold);
+  opacity: 0.85;
+}
+.section-divider-line.left  { background: linear-gradient(90deg, transparent, var(--gold)); }
+.section-divider-line.right { background: linear-gradient(90deg, var(--gold), transparent); }
+.section-divider-diamond {
+  width: 11px; height: 11px;
+  background: var(--gold);
+  transform: rotate(45deg);
+  box-shadow: 0 0 10px rgba(201,168,76,0.6);
+  flex-shrink: 0;
 }
 
 /* ── SUBPAGE HEADER (used on Practice Areas & Contact Us standalone pages) ── */
