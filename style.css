@@ -685,6 +685,14 @@ footer {
 .team-photo-frame .photo-initials-label { font-size: 9px; margin-top: 8px; }
 .team-photo-frame .photo-corner-tl,
 .team-photo-frame .photo-corner-br { width: 20px; height: 20px; }
+.team-logo-badge {
+  position: absolute;
+  top: -14px; right: -14px;
+  width: clamp(42px, 9vw, 60px);
+  border-radius: 50%;
+  filter: drop-shadow(0 4px 16px rgba(0,0,0,0.4));
+  z-index: 3;
+}
 .team-name {
   font-family: 'Cinzel', serif;
   color: var(--forest);
