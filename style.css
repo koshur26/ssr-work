@@ -665,6 +665,50 @@ footer {
   margin-top: var(--sp-sm);
 }
 
+/* ── TEAM PAGE ── */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--sp-lg);
+  max-width: 900px;
+  margin: 0 auto;
+}
+.team-card { text-align: center; }
+.team-photo-frame {
+  position: relative;
+  width: clamp(150px, 20vw, 210px);
+  aspect-ratio: 3/4;
+  margin: 0 auto var(--sp-sm);
+}
+.team-photo-frame .photo-placeholder { border-radius: 130px 130px 90px 90px; }
+.team-photo-frame .photo-initials { font-size: clamp(30px, 6vw, 52px); }
+.team-photo-frame .photo-initials-label { font-size: 9px; margin-top: 8px; }
+.team-photo-frame .photo-corner-tl,
+.team-photo-frame .photo-corner-br { width: 20px; height: 20px; }
+.team-name {
+  font-family: 'Cinzel', serif;
+  color: var(--forest);
+  font-size: var(--fs-md);
+  letter-spacing: 0.04em;
+}
+.team-role {
+  color: var(--gold);
+  font-family: 'Cinzel', serif;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+.team-desc {
+  color: var(--muted);
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+  margin-top: var(--sp-xs);
+  max-width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* ── SUBPAGE HEADER (used on Practice Areas & Contact Us standalone pages) ── */
 .page-header {
   padding: calc(64px + var(--sp-xl)) var(--sp-md) var(--sp-md);
