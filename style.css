@@ -784,6 +784,36 @@ a.team-card, a.team-card:visited {
   flex-shrink: 0;
 }
 
+/* ── INDIVIDUAL TEAM PROFILE PAGES ── */
+.profile-photo-wrap {
+  display: flex; justify-content: center;
+  margin: 0 auto var(--sp-md);
+}
+.profile-name {
+  font-family: 'Cinzel', serif;
+  color: var(--forest);
+  font-size: var(--fs-lg);
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+.profile-role {
+  color: var(--gold);
+  font-family: 'Cinzel', serif;
+  font-size: var(--fs-sm);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 8px;
+}
+.profile-bio {
+  max-width: 700px;
+  margin: var(--sp-lg) auto 0;
+  color: var(--ink);
+  font-size: var(--fs-base);
+  line-height: 1.9;
+  text-align: center;
+}
+
 /* ── SUBPAGE HEADER (used on Practice Areas & Contact Us standalone pages) ── */
 .page-header {
   padding: calc(64px + var(--sp-xl)) var(--sp-md) var(--sp-md);
