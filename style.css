@@ -762,6 +762,34 @@ a.team-card, a.team-card:visited {
   margin-left: auto;
   margin-right: auto;
 }
+.team-more {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: var(--sp-sm);
+  font-family: 'Cinzel', serif;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  transition: gap 0.25s ease, color 0.25s ease;
+}
+.team-more::after { content: '→'; transition: transform 0.25s ease; }
+.team-card:hover .team-more { gap: 10px; }
+.team-card:hover .team-more::after { transform: translateX(4px); }
+
+/* ── INDIVIDUAL PROFILE PAGE HOVER (matches Our Team listing card hover) ── */
+.profile-hero { text-align: center; }
+.profile-hero .hero-photo-frame { transition: transform 0.35s ease; }
+.profile-hero:hover .hero-photo-frame {
+  transform: translateY(-6px) scale(1.035);
+}
+.profile-hero .hero-photo-frame > img {
+  transition: box-shadow 0.35s ease, filter 0.35s ease;
+}
+.profile-hero:hover .hero-photo-frame > img {
+  box-shadow: 0 16px 36px rgba(201,168,76,0.4);
+}
+.profile-hero:hover .profile-name { color: var(--gold); }
+.profile-name { transition: color 0.3s ease; }
 
 /* ── SECTION CLOSING DIVIDER (bigger/bolder than .section-rule) ── */
 .section-divider {
