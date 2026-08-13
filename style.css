@@ -765,15 +765,24 @@ a.team-card, a.team-card:visited {
 .team-more {
   display: inline-flex; align-items: center; gap: 6px;
   margin-top: var(--sp-sm);
+  padding: 8px 20px;
+  border: 1px solid var(--gold-dim);
+  border-radius: 999px;
   font-family: 'Cinzel', serif;
   font-size: var(--fs-xs);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--gold);
-  transition: gap 0.25s ease, color 0.25s ease;
+  background: rgba(201,168,76,0.06);
+  transition: gap 0.25s ease, background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
 }
 .team-more::after { content: '→'; transition: transform 0.25s ease; }
-.team-card:hover .team-more { gap: 10px; }
+.team-card:hover .team-more {
+  gap: 10px;
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--forest);
+}
 .team-card:hover .team-more::after { transform: translateX(4px); }
 
 /* ── INDIVIDUAL PROFILE PAGE HOVER (matches Our Team listing card hover) ── */
